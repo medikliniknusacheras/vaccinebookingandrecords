@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaccination Appointment - Mediklinik Nusa Cheras</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .button-container a {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .vaccine, .faq {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .vaccine-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .vaccine-header span {
+            font-size: 18px;
+        }
+        .vaccine-header button {
+            background-color: transparent;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .vaccine-details, .faq-details {
+            display: none;
+            margin-top: 10px;
+        }
+        .faq-header {
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .faq-details p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .vaccine-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .vaccine-table th, .vaccine-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 200px;
+        }
+    </style>
+    <script>
+        function toggleDetails(id) {
+            var details = document.getElementById(id);
+            var button = document.getElementById('button-' + id);
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+                button.textContent = '-';
+            } else {
+                details.style.display = 'none';
+                button.textContent = '+';
+            }
+        }
+
+        function toggleFaq(id) {
+            var details = document.getElementById(id);
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.imgur.com/cNjdjIB.jpg" alt="Mediklinik Nusa Cheras" class="logo">
+
+        <h1>Vaccination Appointment</h1>
+
+        <!-- Vaccine Information -->
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine1')">
+                <button id="button-vaccine1">+</button>
+                <span><strong>Meningococcal ACWY Vaccine 1 Dose - Menactra</strong> 脑膜炎球菌四价疫苗</span>
+                <span>RM 150</span>
+            </div>
+            <div class="vaccine-details" id="vaccine1">
+                <p>This vaccine is used to protect against meningococcal disease. Dose: 1 dose.</p>
+                <p>这种疫苗用于预防脑膜炎球菌病。剂量：1剂。</p>
+                <p>Vaksin ini digunakan untuk melindungi daripada penyakit meningokokus. Dos: 1 dos.</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine2')">
+                <button id="button-vaccine2">+</button>
+                <span><strong>HPV Vaccine Gardasil 9</strong> 人类乳头瘤病毒疫苗</span>
+                <span>RM 550</span>
+            </div>
+            <div class="vaccine-details" id="vaccine2">
+                <p>This vaccine protects against human papillomavirus (HPV). Dose: 3 doses, taken at 0, 2, and 6 months.</p>
+                <p>这种疫苗预防人类乳头瘤病毒（HPV）。剂量：3剂，分别在0、2和6个月时接种。</p>
+                <p>Vaksin ini melindungi daripada virus papilloma manusia (HPV). Dos: 3 dos, diambil pada 0, 2, dan 6 bulan。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine3')">
+                <button id="button-vaccine3">+</button>
+                <span><strong>Pneumovax 23 Pneumococcal Vaccine</strong> 肺炎球菌疫苗</span>
+                <span>RM 150</span>
+            </div>
+            <div class="vaccine-details" id="vaccine3">
+                <p>This vaccine protects against pneumococcal disease. Dose: 1 dose.</p>
+                <p>这种疫苗预防肺炎球菌病。剂量：1剂。</p>
+                <p>Vaksin ini melindungi daripada penyakit pneumokokus. Dos: 1 dos.</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine4')">
+                <button id="button-vaccine4">+</button>
+                <span><strong>Vaxigrip Tetra (Southern) Influenza Vaccine</strong> 流感疫苗</span>
+                <span>RM 75</span>
+            </div>
+            <div class="vaccine-details" id="vaccine4">
+                <p>This vaccine is used to protect against influenza (flu). Dose: 1 dose annually.</p>
+                <p>这种疫苗用于预防流感。剂量：每年1剂。</p>
+                <p>Vaksin ini digunakan untuk melindungi daripada influenza (selesema). Dos: 1 dos setiap tahun。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine5')">
+                <button id="button-vaccine5">+</button>
+                <span><strong>Hexaxim 0.5ml Vaccine (6-in-1)</strong> 六联疫苗</span>
+                <span>RM 180</span>
+            </div>
+            <div class="vaccine-details" id="vaccine5">
+                <p>This vaccine protects against diphtheria, tetanus, pertussis, hepatitis B, polio, and Haemophilus influenzae type b. Dose: 3 doses, taken at 2, 4, and 6 months of age.</p>
+                <p>这种疫苗预防白喉、破伤风、百日咳、乙型肝炎、脊髓灰质炎和b型流感嗜血杆菌。剂量：3剂，分别在2、4和6个月大时接种。</p>
+                <p>Vaksin ini melindungi daripada difteria, tetanus, pertusis, hepatitis B, polio, dan Haemophilus influenzae jenis b. Dos: 3 dos, diambil pada umur 2, 4, dan 6 bulan。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine6')">
+                <button id="button-vaccine6">+</button>
+                <span><strong>Havrix 1440 Inactivated Hepatitis A Vaccine (Adult Dose)</strong> 甲型肝炎疫苗（成人剂量）</span>
+                <span>RM 160</span>
+            </div>
+            <div class="vaccine-details" id="vaccine6">
+                <p>This vaccine protects against hepatitis A. Dose: 2 doses, taken 6 months apart.</p>
+                <p>这种疫苗预防甲型肝炎。剂量：2剂，间隔6个月接种。</p>
+                <p>Vaksin ini melindungi daripada hepatitis A. Dos: 2 dos, diambil 6 bulan berasingan。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine7')">
+                <button id="button-vaccine7">+</button>
+                <span><strong>Prevenar 13 Pneumococcal Vaccine</strong> 肺炎球菌疫苗</span>
+                <span>RM 265</span>
+            </div>
+            <div class="vaccine-details" id="vaccine7">
+                <p>This vaccine protects against pneumococcal disease. Dose: 4 doses, taken at 2, 4, 6, and 12-15 months of age.</p>
+                <p>这种疫苗预防肺炎球菌病。剂量：4剂，分别在2、4、6和12-15个月大时接种。</p>
+                <p>Vaksin ini melindungi daripada penyakit pneumokokus. Dos: 4 dos, diambil pada umur 2, 4, 6, dan 12-15 bulan。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine8')">
+                <button id="button-vaccine8">+</button>
+                <span><strong>Hepatitis B Vaccine Euvax B</strong> 乙型肝炎疫苗</span>
+                <span>RM 55</span>
+            </div>
+            <div class="vaccine-details" id="vaccine8">
+                <p>This vaccine protects against hepatitis B. Dose: 3 doses, taken at 0, 1, and 6 months.</p>
+                <p>这种疫苗预防乙型肝炎。剂量：3剂，分别在0、1和6个月时接种。</p>
+                <p>Vaksin ini melindungi daripada hepatitis B. Dos: 3 dos, diambil pada 0, 1, dan 6 bulan。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine9')">
+                <button id="button-vaccine9">+</button>
+                <span><strong>MMR II Vaccine</strong> 麻疹、腮腺炎和风疹疫苗</span>
+                <span>RM 75</span>
+            </div>
+            <div class="vaccine-details" id="vaccine9">
+                <p>This vaccine protects against measles, mumps, and rubella. Dose: 2 doses, taken at 12-15 months and 4-6 years of age.</p>
+                <p>这种疫苗预防麻疹、腮腺炎和风疹。剂量：2剂，分别在12-15个月大和4-6岁时接种。</p>
+                <p>Vaksin ini melindungi daripada campak, beguk, dan rubela. Dos: 2 dos, diambil pada umur 12-15 bulan dan 4-6 tahun。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine10')">
+                <button id="button-vaccine10">+</button>
+                <span><strong>Hepatitis B Vaccine Engerix-B 20</strong> 乙型肝炎疫苗</span>
+                <span>RM 55</span>
+            </div>
+            <div class="vaccine-details" id="vaccine10">
+                <p>This vaccine protects against hepatitis B. Dose: 3 doses, taken at 0, 1, and 6 months.</p>
+                <p>这种疫苗预防乙型肝炎。剂量：3剂，分别在0、1和6个月时接种。</p>
+                <p>Vaksin ini melindungi daripada hepatitis B. Dos: 3 dos, diambil pada 0, 1, dan 6 bulan。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine11')">
+                <button id="button-vaccine11">+</button>
+                <span><strong>Infanrix Hexa Vaccine (6-in-1)</strong> 六联疫苗</span>
+                <span>RM 180</span>
+            </div>
+            <div class="vaccine-details" id="vaccine11">
+                <p>This vaccine protects against diphtheria, tetanus, pertussis, hepatitis B, polio, and Haemophilus influenzae type b. Dose: 3 doses, taken at 2, 4, and 6 months of age.</p>
+                <p>这种疫苗预防白喉、破伤风、百日咳、乙型肝炎、脊髓灰质炎和b型流感嗜血杆菌。剂量：3剂，分别在2、4和6个月大时接种。</p>
+                <p>Vaksin ini melindungi daripada difteria, tetanus, pertusis, hepatitis B, polio, dan Haemophilus influenzae jenis b. Dos: 3 dos, diambil pada umur 2, 4, dan 6 bulan。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine12')">
+                <button id="button-vaccine12">+</button>
+                <span><strong>Avaxim Hepatitis A Child Vaccine 0.5ml</strong> 儿童甲型肝炎疫苗</span>
+                <span>RM 120</span>
+            </div>
+            <div class="vaccine-details" id="vaccine12">
+                <p>This vaccine protects against hepatitis A for children. Dose: 2 doses, taken 6-12 months apart.</p>
+                <p>这种疫苗预防儿童甲型肝炎。剂量：2剂，间隔6-12个月接种。</p>
+                <p>Vaksin ini melindungi daripada hepatitis A untuk kanak-kanak. Dos: 2 dos, diambil 6-12 bulan berasingan。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine13')">
+                <button id="button-vaccine13">+</button>
+                <span><strong>Varivax Chicken Pox Vaccine</strong> 水痘疫苗</span>
+                <span>RM 150</span>
+            </div>
+            <div class="vaccine-details" id="vaccine13">
+                <p>This vaccine protects against chickenpox. Dose: 2 doses, taken at 12-15 months and 4-6 years of age.</p>
+                <p>这种疫苗预防水痘。剂量：2剂，分别在12-15个月大和4-6岁时接种。</p>
+                <p>Vaksin ini melindungi daripada cacar air. Dos: 2 dos, diambil pada umur 12-15 bulan dan 4-6 tahun。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine14')">
+                <button id="button-vaccine14">+</button>
+                <span><strong>Meningococcal (Nimenrix) Vaccine</strong> 脑膜炎球菌疫苗</span>
+                <span>RM 150</span>
+            </div>
+            <div class="vaccine-details" id="vaccine14">
+                <p>This vaccine protects against meningococcal disease. Dose: 1 dose.</p>
+                <p>这种疫苗用于预防脑膜炎球菌病。剂量：1剂。</p>
+                <p>Vaksin ini digunakan untuk melindungi daripada penyakit meningokokus. Dos: 1 dos。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine15')">
+                <button id="button-vaccine15">+</button>
+                <span><strong>QDenga Vaccine / Dengue</strong> 登革热疫苗</span>
+                <span>RM 200</span>
+            </div>
+            <div class="vaccine-details" id="vaccine15">
+                <p>This vaccine is used to protect against dengue fever. Dose: 2 doses, taken 3 months apart.</p>
+                <p>这种疫苗用于预防登革热。剂量：2剂，间隔3个月接种。</p>
+                <p>Vaksin ini digunakan untuk melindungi daripada demam denggi. Dos: 2 dos, diambil 3 bulan berasingan。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine16')">
+                <button id="button-vaccine16">+</button>
+                <span><strong>Influenza Vaccine (Tetra) Influvac Tetra</strong> 流感疫苗</span>
+                <span>RM 75</span>
+            </div>
+            <div class="vaccine-details" id="vaccine16">
+                <p>This vaccine is used to protect against influenza (flu). Dose: 1 dose annually.</p>
+                <p>这种疫苗用于预防流感。剂量：每年1剂。</p>
+                <p>Vaksin ini digunakan untuk melindungi daripada influenza (selesema). Dos: 1 dos setiap tahun。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine17')">
+                <button id="button-vaccine17">+</button>
+                <span><strong>Hepatitis B Vaccine GeneVac-B</strong> 乙型肝炎疫苗</span>
+                <span>RM 55</span>
+            </div>
+            <div class="vaccine-details" id="vaccine17">
+                <p>This vaccine protects against hepatitis B. Dose: 3 doses, taken at 0, 1, and 6 months.</p>
+                <p>这种疫苗预防乙型肝炎。剂量：3剂，分别在0、1和6个月时接种。</p>
+                <p>Vaksin ini melindungi daripada hepatitis B. Dos: 3 dos, diambil pada 0, 1, dan 6 bulan。</p>
+            </div>
+        </div>
+
+        <div class="vaccine">
+            <div class="vaccine-header" onclick="toggleDetails('vaccine18')">
+                <button id="button-vaccine18">+</button>
+                <span><strong>Typhoid Vaccine Typbar</strong> 伤寒疫苗</span>
+                <span>RM 70</span>
+            </div>
+            <div class="vaccine-details" id="vaccine18">
+                <p>This vaccine protects against typhoid fever. Dose: 1 dose, booster every 2-3 years if at continued risk.</p>
+                <p>这种疫苗预防伤寒。剂量：1剂，如果持续有风险，每2-3年加强一次。</p>
+                <p>Vaksin ini melindungi daripada demam kepialu. Dos: 1 dos, penggalak setiap 2-3 tahun jika terus berisiko。</p>
+            </div>
+        </div>
+
+        <!-- Vaccine Schedule Image -->
+        <h2>Vaccination Schedule</h2>
+        <img src="https://immunise4life.my/wp-content/uploads/2021/04/JADUAL-IMUNISASI-2023-NEW.png" alt="Vaccination Schedule 2023" style="width: 100%; margin-bottom: 20px;">
+
+        <!-- Additional Vaccine Tables -->
+        <h2>Additional Vaccine Information</h2>
+        <table class="vaccine-table">
+            <thead>
+                <tr>
+                    <th>Vaccine</th>
+                    <th>Recommended Dose</th>
+                    <th>Duration Apart</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dengue Vaccine</td>
+                    <td>2 doses</td>
+                    <td>3 months apart</td>
+                </tr>
+                <tr>
+                    <td>HPV Vaccine</td>
+                    <td>3 doses</td>
+                    <td>0, 2, and 6 months</td>
+                </tr>
+                <tr>
+                    <td>Hepatitis B Vaccine</td>
+                    <td>3 doses</td>
+                    <td>0, 1, and 6 months</td>
+                </tr>
+                <tr>
+                    <td>Influenza Vaccine</td>
+                    <td>1 dose annually</td>
+                    <td>Annually</td>
+                </tr>
+                <tr>
+                    <td>Meningococcal Vaccine</td>
+                    <td>1 dose</td>
+                    <td>Single dose</td>
+                </tr>
+                <tr>
+                    <td>Typhoid Vaccine</td>
+                    <td>1 dose</td>
+                    <td>Booster every 2-3 years</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- FAQ Section -->
+        <h2>FAQ</h2>
+
+        <div class="faq">
+            <div class="faq-header" onclick="toggleFaq('faq1')">
+                <strong>What should I do if I miss a vaccine dose?</strong> <span id="button-faq1">+</span>
+            </div>
+            <div class="faq-details" id="faq1">
+                <p>It's important to get back on schedule as soon as possible. Contact your healthcare provider to determine the best course of action.</p>
+                <p>重要的是尽快恢复计划。联系您的医疗服务提供者以确定最佳行动方案。</p>
+                <p>Penting untuk kembali ke jadual secepat mungkin. Hubungi penyedia penjagaan kesihatan anda untuk menentukan tindakan terbaik。</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-header" onclick="toggleFaq('faq2')">
+                <strong>Are vaccines safe?</strong> <span id="button-faq2">+</span>
+            </div>
+            <div class="faq-details" id="faq2">
+                <p>Yes, vaccines are safe. They undergo rigorous testing and monitoring to ensure their safety and efficacy.</p>
+                <p>是的，疫苗是安全的。它们经过严格的测试和监控以确保其安全性和有效性。</p>
+                <p>Ya, vaksin selamat. Mereka menjalani ujian dan pemantauan yang ketat untuk memastikan keselamatan dan keberkesanannya。</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-header" onclick="toggleFaq('faq3')">
+                <strong>Can I get vaccinated if I am sick?</strong> <span id="button-faq3">+</span>
+            </div>
+            <div class="faq-details" id="faq3">
+                <p>If you have a mild illness, such as a cold, you can still get vaccinated. If you are moderately or severely ill, it's best to wait until you recover.</p>
+                <p>如果您患有轻度疾病，例如感冒，您仍然可以接种疫苗。如果您患有中度或重度疾病，最好等到康复后再接种。</p>
+                <p>Jika anda mempunyai penyakit ringan, seperti selesema, anda masih boleh mendapatkan vaksin. Jika anda sakit sederhana atau teruk, lebih baik menunggu sehingga anda pulih。</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-header" onclick="toggleFaq('faq4')">
+                <strong>What are the common side effects of vaccines?</strong> <span id="button-faq4">+</span>
+            </div>
+            <div class="faq-details" id="faq4">
+                <p>Common side effects include pain at the injection site, mild fever, and fatigue. These side effects are usually mild and go away on their own.</p>
+                <p>常见的副作用包括注射部位疼痛、轻度发热和疲劳。这些副作用通常是轻微的，会自行消失。</p>
+                <p>Kesan sampingan yang biasa termasuk kesakitan di tempat suntikan, demam ringan, dan keletihan. Kesan sampingan ini biasanya ringan dan hilang dengan sendirinya。</p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-header" onclick="toggleFaq('faq5')">
+                <strong>Do I need to get vaccinated if I have already had the disease?</strong> <span id="button-faq5">+</span>
+            </div>
+            <div class="faq-details" id="faq5">
+                <p>Yes, you should still get vaccinated. Having the disease may provide some immunity, but vaccination provides more reliable and longer-lasting protection.</p>
+                <p>是的，您仍然应该接种疫苗。患有该疾病可能会提供一些免疫力，但接种疫苗提供了更可靠和持久的保护。</p>
+                <p>Ya, anda masih perlu mendapatkan vaksin. Menghidap penyakit mungkin memberikan imuniti, tetapi vaksinasi memberikan perlindungan yang lebih boleh dipercayai dan tahan lama。</p>
+            </div>
+        </div>
+
+        <!-- Booking Section -->
+        <div class="button-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSes09wnlxdJN_tL3qSUFVEi7KQxWag6V3rugSqGsuOX4M-jVg/viewform?usp=sf_link" target="_blank">Book Your Vaccination Here</a>
+        </div>
+    </div>
+</body>
+</html>
